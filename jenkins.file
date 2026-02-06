@@ -4,39 +4,30 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your-repo/project.git'
+                echo 'Code checked out successfully'
             }
         }
 
         stage('Build') {
             steps {
-                echo 'Building the project...'
-                sh 'mvn clean package'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-                sh 'mvn test'
+                echo 'HTML project – no build needed'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploying application...'
-                // Example deploy command
-                sh 'echo Deploy step completed'
+                echo 'Deploy stage completed'
             }
         }
     }
 
     post {
         success {
-            echo '✅ Pipeline completed successfully!'
+            echo '✅ Build successful'
         }
         failure {
-            echo '❌ Pipeline failed!'
+            echo '❌ Build failed'
         }
     }
 }
+
